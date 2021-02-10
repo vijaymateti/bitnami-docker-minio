@@ -22,6 +22,9 @@ ENV BITNAMI_APP_NAME="minio" \
 
 VOLUME [ "/certs", "/data" ]
 
+RUN chgrp -R 0 /data && \
+    chmod -R g+rwX /data
+
 EXPOSE 9000
 
 WORKDIR /opt/bitnami/minio-client
